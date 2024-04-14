@@ -1,0 +1,9 @@
+name: 'cinemille'
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: cinemille
+      MYSQL_ROOT_PASSWORD: verysecret
+    ports:
+      - 3306:3306

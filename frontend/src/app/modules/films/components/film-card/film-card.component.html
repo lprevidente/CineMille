@@ -1,0 +1,37 @@
+<mat-card class="w-full h-full">
+  <mat-card-header>
+    <mat-card-title>{{ film().title }}</mat-card-title>
+    <mat-card-subtitle class="text-gray-700">
+      {{ formatDuration(film().durationInMinutes) }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div>
+      <p class="text-gray-700">{{ film().description }}</p>
+      <table class="timetable">
+        <tbody>
+          @for (date of getDates(film()); track trackByDate) {
+            <tr>
+              <td>
+                <p>
+                  {{ date | date: "EEE d" | titlecase }}
+                  <sub>{{ date | date: "MMM y" | titlecase }}</sub>
+                </p>
+              </td>
+              <td>
+                <mat-chip-listbox>
+                  @for (info of film().screenings[date]; track trackByTime) {
+                    <mat-chip [matTooltip]="info.room.name">
+                      {{ info.startTime }}
+                    </mat-chip>
+                  }
+                </mat-chip-listbox>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>

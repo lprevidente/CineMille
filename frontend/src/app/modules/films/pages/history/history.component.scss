@@ -1,0 +1,10 @@
+.grid-films {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'left right';
+
+  > p {
+    grid-column-start: 1;
+  }
+}

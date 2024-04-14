@@ -1,0 +1,39 @@
+server:
+  servlet:
+    context-path: /api
+
+spring:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      platform: mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/cinemille
+    username: root
+    password: verysecret
+    hikari:
+      data-source-properties:
+        createDatabaseIfNotExist: true
+        useSSL: false
+        serverTimezone: UTC
+        cachePrepStmts: true
+        useServerPrepStmts: true
+        rewriteBatchedStatements: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 1024
+      minimum-idle: 0
+      maximum-pool-size: 40
+      max-lifetime: 900000
+  application:
+    name: cinemille
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

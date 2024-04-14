@@ -1,0 +1,27 @@
+<p
+  class="mat-body-2 mt-1 text-center"
+  *ngIf="error">
+  <mat-icon
+    color="warn"
+    class="align-middle">
+    error
+  </mat-icon>
+  <span class="ml-1">
+    Si è verificato un <i>errore</i> durante il caricamento dei dati.
+  </span>
+  <span class="font-medium">Per favore, riprova!</span>
+</p>
+
+<div
+  *ngFor="let line of lines"
+  class="ghost-element flex flex-row">
+  <ng-container *ngIf="loading">
+    <div
+      class="line-form"
+      *ngFor="let _ of cards"></div>
+  </ng-container>
+</div>
+
+<ng-container *ngIf="!loading && !error">
+  <ng-content></ng-content>
+</ng-container>

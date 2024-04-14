@@ -1,0 +1,34 @@
+<form
+  class="w-full flex flex-row gap-4"
+  [formGroup]="filterForm">
+  <mat-form-field
+    class="flex-grow"
+    appearance="outline">
+    <input
+      placeholder="Trova per testo"
+      formControlName="text"
+      matInput />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-date-range-input
+      formGroupName="range"
+      [rangePicker]="picker">
+      <input
+        readonly
+        matStartDate
+        formControlName="start"
+        placeholder="Data inizio" />
+      <input
+        readonly
+        matEndDate
+        formControlName="end"
+        placeholder="Data fine" />
+    </mat-date-range-input>
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="picker">
+    </mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+</form>

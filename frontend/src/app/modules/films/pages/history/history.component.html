@@ -1,0 +1,30 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button
+      routerLink="/films/all"
+      mat-icon-button>
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <mat-icon>movie</mat-icon>
+    <span class="ml-4">Storico dei Film</span>
+    <span class="flex-1"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="p-4">
+  <app-filter-films (filterChange)="filterFilms($event)"></app-filter-films>
+
+  <app-loading-cards
+    [numCards]="2"
+    [numLines]="2"
+    [error]="error()"
+    [loading]="loading()">
+    <div class="grid-films">
+      @for (film of films(); track filmTrackBy) {
+        <app-film-card [film]="film"></app-film-card>
+      } @empty {
+        <p class="text-center text-xl text-gray-500">Non ci sono film</p>
+      }
+    </div>
+  </app-loading-cards>
+</div>
