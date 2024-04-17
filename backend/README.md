@@ -1,4 +1,4 @@
-# Nome del Progetto
+# Backend
 
 Questo progetto è un'applicazione web sviluppata con Spring Boot e Java.
 Utilizza un database MySQL, che viene gestito tramite Docker.
